@@ -1,0 +1,3 @@
+service {
+	"VIEWS::OB1_ITEMS" as "Items" key ("ItemCode");
+}

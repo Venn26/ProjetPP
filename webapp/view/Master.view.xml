@@ -1,0 +1,263 @@
+<mvc:View controllerName="wwl.controller.Master"
+          xmlns:html="http://www.w3.org/1999/xhtml"
+          xmlns:mvc="sap.ui.core.mvc"
+          xmlns="sap.m"
+          xmlns:t="sap.ui.table"
+          xmlns:u="sap.ui.unified"
+          xmlns:core="sap.ui.core"
+>
+    <Page id="mainPage"
+          busyIndicatorDelay="0"
+    >
+        <customHeader>
+            <Toolbar>
+                <Text text="Bonjour {ConnectedPartner>/CardName}"/>
+                <ToolbarSpacer/>
+                <!--                <Input id="Items" type="Text" placeholder="Rechercher..."-->
+                <!--                       showSuggestion="true"-->
+                <!--                       suggestionItems="{Items>/}"-->
+                <!--                       suggestionItemSelected=".suggestionItemSelected">-->
+                <!--                    <SuggestionItem text="{Items>ItemName}" key="{Items>ItemCode}"/>-->
+                <!--                </Input>-->
+                <Avatar src="sap-icon://person-placeholder" displaySize="XS" press="onAvatarPress"/>
+            </Toolbar>
+        </customHeader>
+        <content>
+            <IconTabBar id="iconTabBar" class="sapUiResponsiveContentPadding">
+                <items>
+                    <IconTabFilter text="Tous les produits">
+                        <Table id="idProductsTable"
+                               inset="false"
+                               items="{
+                                        path: 'Items>/',
+                                        sorter: {
+                                            path: 'Name'
+                                        }
+                                    }"
+                               class="sapUiSizeCompact">
+                            <headerToolbar>
+                                <OverflowToolbar>
+                                    <content>
+                                        <Title text="Tous les produits" level="H1"/>
+                                        <OverflowToolbar>
+                                            <SearchField liveChange=".onSearch" width="100%" search=".onReset"/>
+                                        </OverflowToolbar>
+                                        <ToolbarSpacer/>
+                                    </content>
+                                </OverflowToolbar>
+                            </headerToolbar>
+                            <columns>
+                                <Column width="5%">
+                                    <Text text="ID Article"/>
+                                </Column>
+                                <Column
+                                        minScreenWidth="Tablet">
+                                    <Text text="Nom Article"/>
+                                </Column>
+                                <Column hAlign="End" width="4%">
+                                    <Text text="Stock"/>
+                                </Column>
+                                <Column width="4%">
+                                    <Text text="Colis"/>
+                                </Column>
+                                <Column width="3%">
+                                    <Text text="Unité"/>
+                                </Column>
+                                <Column width="6%">
+                                    <Text text="Prix Net"/>
+                                </Column>
+                                <Column width="6%">
+                                    <Text text="PV/Kilo"/>
+                                </Column>
+                                <Column width="6%">
+                                    <Text text="PV/Colis"/>
+                                </Column>
+                                <Column width="6%">
+                                    <Text text="HT"/>
+                                </Column>
+                                <Column width="5%">
+                                    <Text text="Poids Net"/>
+                                </Column>
+                                <Column width="3%">
+                                    <Text text="En cde"/>
+                                </Column>
+                                <Column width="6%">
+                                    <Text text="Catégorie"/>
+                                </Column>
+                                <Column width="6%">
+                                    <Text text="Calibre"/>
+                                </Column>
+                                <Column width="6%">
+                                    <Text text="Origine"/>
+                                </Column>
+                            </columns>
+                            <items>
+                                <ColumnListItem>
+                                    <cells>
+                                        <ObjectIdentifier
+                                                text="{Items>itemCode}"/>
+                                        <Text
+                                                text="{Items>itemName}"/>
+                                        <Text
+                                                text="{Items>onHand}"/>
+                                        <Input liveChange=".onType" id="quantityInput"/>
+                                        <Text text="{Items>salunitmsr}"/>
+                                        <ObjectNumber
+                                                number="0"
+                                                unit="€"/>
+                                        <ObjectNumber
+                                                number="{Items>price}"
+                                                unit="€"/>
+                                        <ObjectNumber
+                                                number="{Items>price}"
+                                                unit="€"/>
+                                        <ObjectNumber
+                                                number="0"
+                                                unit="€"/>
+                                        <Text
+                                                text="{Items>salPackUn} kg"/>
+                                        <Text
+                                                text="{Items>isCommited}"/>
+                                        <Text
+                                                text="..."/>
+                                        <Text
+                                                text="..."/>
+                                        <Text
+                                                text="..."/>
+                                    </cells>
+                                </ColumnListItem>
+                            </items>
+                        </Table>
+
+                    </IconTabFilter>
+                    <IconTabFilter text="Légumes">
+                        <Table id="idVegeTable"
+                               inset="false"
+                               items="{
+                                        path: 'Items>/',
+                                        sorter: {
+                                            path: 'Name'
+                                        }
+                                    }"
+                               class="sapUiSizeCompact">
+                            <headerToolbar>
+                                <OverflowToolbar>
+                                    <content>
+                                        <Title text="Légumes" level="H2"/>
+                                        <OverflowToolbar>
+                                            <SearchField liveChange=".onSearchVeget" width="100%" />
+                                        </OverflowToolbar>
+                                        <ToolbarSpacer/>
+                                    </content>
+                                </OverflowToolbar>
+                            </headerToolbar>
+                            <columns>
+                                <Column width="5%">
+                                    <Text text="ID Article"/>
+                                </Column>
+                                <Column
+                                        minScreenWidth="Tablet">
+                                    <Text text="Nom Article"/>
+                                </Column>
+                                <Column hAlign="End" width="4%">
+                                    <Text text="Stock"/>
+                                </Column>
+                                <Column width="4%">
+                                    <Text text="Colis"/>
+                                </Column>
+                                <Column width="3%">
+                                    <Text text="Unité"/>
+                                </Column>
+                                <Column width="6%">
+                                    <Text text="Prix Net"/>
+                                </Column>
+                                <Column width="6%">
+                                    <Text text="PV/Kilo"/>
+                                </Column>
+                                <Column width="6%">
+                                    <Text text="PV/Colis"/>
+                                </Column>
+                                <Column width="6%">
+                                    <Text text="HT"/>
+                                </Column>
+                                <Column width="5%">
+                                    <Text text="Poids Net"/>
+                                </Column>
+                                <Column width="3%">
+                                    <Text text="En cde"/>
+                                </Column>
+                                <Column width="6%">
+                                    <Text text="Catégorie"/>
+                                </Column>
+                                <Column width="6%">
+                                    <Text text="Calibre"/>
+                                </Column>
+                                <Column width="6%">
+                                    <Text text="Origine"/>
+                                </Column>
+                            </columns>
+                            <items>
+                                <ColumnListItem>
+                                    <cells>
+                                        <ObjectIdentifier
+                                                text="{Items>itemCode}"/>
+                                        <Text
+                                                text="{Items>itemName}"/>
+                                        <Text
+                                                text="{Items>onHand}"/>
+                                        <Input liveChange=".onType" id="quantityInputVeget"/>
+                                        <Text text="{Items>salunitmsr}"/>
+                                        <ObjectNumber
+                                                number="0"
+                                                unit="€"/>
+                                        <ObjectNumber
+                                                number="{Items>price}"
+                                                unit="€"/>
+                                        <ObjectNumber
+                                                number="{Items>price}"
+                                                unit="€"/>
+                                        <ObjectNumber
+                                                number="0"
+                                                unit="€"/>
+                                        <Text
+                                                text="{Items>salPackUn} kg"/>
+                                        <Text
+                                                text="{Items>isCommited}"/>
+                                    </cells>
+                                </ColumnListItem>
+                            </items>
+                        </Table>
+                    </IconTabFilter>
+                    <IconTabFilter text="Fruits">
+
+                    </IconTabFilter>
+                    <IconTabFilter text="Fromages">
+
+
+                    </IconTabFilter>
+                    <IconTabFilter text="Épicerie">
+
+                    </IconTabFilter>
+                </items>
+            </IconTabBar>
+        </content>
+        <footer>
+            <Toolbar>
+                <Button
+                        press="handleResetForm"
+                        text="Reset"
+                        icon="sap-icon://reset"
+                />
+                <ToolbarSpacer/>
+                <Text id="totalPrice" text="Total : 0 € TTC"/>
+                <Button
+                        id="validateFormButton"
+                        press="handleValidateDocument"
+                        text="Valider"
+                        type="Accept"
+                        icon="sap-icon://accept"
+                />
+            </Toolbar>
+        </footer>
+    </Page>
+</mvc:View>

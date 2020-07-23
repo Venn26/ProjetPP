@@ -1,0 +1,35 @@
+/* Enter your custom styles here */
+
+.sapMShellBrandingBar, .sapMPageHeader::before {
+    display: none;
+}
+
+.sapMIBar.sapMHeader-CTX {
+    background-color: rgba(54, 62, 67, 0.96);
+}
+
+.sapMIBar.sapMHeader-CTX, #__toolbar0, #__text0 {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ffffff !important;
+    text-shadow: none;
+    font-size: 1rem;
+}
+
+#__table0-sapUiTableRowHdrScr {
+    display: none;
+}
+
+#__input0-__clone3, #__input0-__clone14, #__input0-__clone25, #__input0-__clone36, #__input0-__clone47,
+#__input0-__clone58, #__input0-__clone69, #__input0-__clone80, #__input0-__clone91, #__input0-__clone102,
+#__input0-__clone113, #__input0-__clone124, #__input0-__clone135, #__input0-__clone146, #__input0-__clone157,
+#__input0-__clone {
+    height: 80% !important;
+}
+
+#__xmlview1--DefaultTable-vsb {
+    visibility: hidden;
+}
+
+#columnTest {
+    height: 1%;
+}

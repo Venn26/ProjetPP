@@ -1,0 +1,138 @@
+{
+  "_version": "1.1.0",
+  "sap.app": {
+    "_version": "1.1.0",
+    "id": "wwl",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "1.0.0"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "sourceTemplate": {
+      "id": "ui5template.basicSAPUI5ApplicationProject",
+      "version": "1.32.0"
+    }
+  },
+  "sap.ui": {
+    "_version": "1.1.0",
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "http://www.work-well.fr/wp-content/uploads/2015/12/logoWWVide1.png",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    },
+    "supportedThemes": [
+      "sap_hcb",
+      "sap_bluecrystal"
+    ]
+  },
+  "sap.ui5": {
+    "_version": "1.1.0",
+    "rootView": {
+      "viewName": "wwl.view.App",
+      "type": "XML"
+    },
+    "dependencies": {
+      "minUI5Version": "1.30.0",
+      "libs": {
+        "sap.ui.core": {},
+        "sap.m": {},
+        "sap.ui.layout": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "wwl.i18n.i18n"
+        }
+      },
+      "conf": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "wwl.conf"
+        }
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "viewPath": "wwl.view",
+        "controlId": "MasterApp",
+        "controlAggregation": "pages",
+        "targetAggregation": "pages"
+      },
+      "routes": [
+        {
+          "pattern": "Login",
+          "name": "Login",
+          "target": "Login"
+        },
+        {
+          "pattern": "",
+          "name": "Master",
+          "target": "Master"
+        },
+        {
+          "pattern": "Details/:projetFinancier:",
+          "name": "Details",
+          "target": [
+            "Master",
+            "Details"
+          ]
+        },
+        {
+          "pattern": "Validate",
+          "name": "Validate",
+          "target": "Validate"
+        },
+        {
+          "pattern": "DynamicPageWithWizard",
+          "name": "DynamicPageWithWizard",
+          "target": "DynamicPageWithWizard"
+        }
+      ],
+      "targets": {
+        "Login": {
+          "viewName": "Login"
+        },
+        "Master": {
+          "viewName": "Master",
+          "viewLevel": 0
+        },
+        "Details": {
+          "viewName": "Details",
+          "viewLevel": 1
+        },
+        "Validate": {
+          "viewName": "Validate"
+        },
+        "DynamicPageWithWizard": {
+          "viewName": "DynamicPageWithWizard"
+        }
+      }
+    }
+  }
+}

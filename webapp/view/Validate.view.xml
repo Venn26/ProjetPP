@@ -1,0 +1,21 @@
+<mvc:View
+        controllerName="wwl.controller.Master"
+        xmlns:html="http://www.w3.org/1999/xhtml"
+        xmlns:mvc="sap.ui.core.mvc"
+        xmlns:l="sap.ui.layout"
+        xmlns:f="sap.ui.layout.form"
+        xmlns="sap.m">
+    <Page
+            id="validatePage"
+            busyIndicatorDelay="0"
+    >
+        <customHeader>
+            <Toolbar>
+                <Button type="Back" press="onPress" />
+                <ToolbarSpacer/>
+                <Avatar src="sap-icon://person-placeholder" displaySize="XS" press="onAvatarPress"/>
+            </Toolbar>
+        </customHeader>
+
+    </Page>
+</mvc:View>
